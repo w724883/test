@@ -1,0 +1,309 @@
+@charset "UTF-8";
+/*注释*/
+body {
+  color: yellow;
+  background: #337ab7;
+}
+
+.block {
+  width: 300px;
+  border-top: 1px solid red;
+  border-bottom: 1px solid blue;
+}
+.block h1 {
+  color: yellow;
+}
+
+.clearfix:before, .clearfix:after {
+  content: "";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+  overflow: hidden;
+}
+
+.block {
+  color: red;
+}
+
+.btn, .btn-blue, .btn-red {
+  border-style: solid;
+  border-width: 1px;
+}
+
+.btn-blue {
+  border-color: blue;
+  background: #0000cc;
+}
+
+.padding {
+  padding: 10px;
+}
+
+.btn-red {
+  padding: 5px;
+}
+
+.box {
+  margin-top: 14px;
+  padding-top: 14px;
+}
+
+.box {
+  width: 106px;
+  height: 20px;
+  margin: 4px;
+  padding: 10px;
+  color: #666666;
+}
+
+.box:before {
+  content: "HelloSass!";
+}
+
+.hidden {
+  display: none;
+}
+
+.item-1 {
+  width: 2em;
+}
+
+.item-2 {
+  width: 4em;
+}
+
+.item-3 {
+  width: 6em;
+}
+
+.while-4 {
+  width: 24px;
+}
+
+.while-3 {
+  width: 23px;
+}
+
+.while-2 {
+  width: 22px;
+}
+
+.while-1 {
+  width: 21px;
+}
+
+.each .photo-adam {
+  background: url("/images/avatars/adam.png") no-repeat;
+}
+.each .photo-john {
+  background: url("/images/avatars/john.png") no-repeat;
+}
+.each .photo-wynn {
+  background: url("/images/avatars/wynn.png") no-repeat;
+}
+.each .photo-mason {
+  background: url("/images/avatars/mason.png") no-repeat;
+}
+.each .photo-kuroir {
+  background: url("/images/avatars/kuroir.png") no-repeat;
+}
+
+.unquote {
+  content: Hello Sass!;
+}
+
+.quote {
+  content: "Hello Sass!";
+}
+
+.case {
+  content: AAAA;
+  content: aaaa;
+}
+
+.percentage {
+  width: 20%;
+}
+
+.round {
+  width: 12px;
+}
+
+.ceil {
+  width: 13px;
+}
+
+.floor {
+  width: 12px;
+}
+
+.abs {
+  width: 12.3px;
+}
+
+.min {
+  width: 1px;
+  height: 5px;
+}
+
+.random {
+  width: 0.52717;
+}
+
+.length {
+  width: 4;
+}
+
+.nth {
+  width: 10px;
+}
+
+.join {
+  border: 1px solid red;
+}
+
+.append {
+  border: 1px solid red;
+}
+
+.zip {
+  border: 1px solid green, 2px dashed blue, 3px dotted red;
+}
+
+.index {
+  width: 1;
+}
+
+.unit {
+  width: "100px";
+}
+
+.unitless {
+  width: true;
+  height: false;
+}
+
+.comparable {
+  width: true;
+  height: false;
+}
+
+.miscellaneous {
+  width: 1px;
+}
+
+.map-get {
+  color: #fff;
+}
+
+.map-has-key {
+  width: false;
+}
+
+.map-keys {
+  color: default, primary, negative;
+}
+
+.map-values {
+  color: #fff, #22ae39, #d9534f;
+}
+
+.map-merge {
+  color: #fff, #22ae39, #d9534f, yellow;
+}
+
+.map-remove {
+  color: #22ae39, #d9534f;
+}
+
+.keywords {
+  color: #fff, #333;
+}
+
+.RGB {
+  color: #c82858;
+}
+
+.rgba {
+  color: rgba(200, 40, 88, 0.65);
+}
+
+.red {
+  color: 200;
+}
+
+.green {
+  color: 40;
+}
+
+.blue {
+  color: 88;
+}
+
+.mix {
+  color: rgba(200, 40, 88, 0.99895);
+}
+
+.alpha {
+  color: 0.5;
+  color: 0.8;
+}
+
+.opacify {
+  color: rgba(22, 34, 235, 0.8);
+}
+
+.fade-in {
+  color: rgba(23, 34, 34, 0.65);
+}
+
+.transparentize {
+  color: rgba(255, 221, 238, 0.1);
+}
+
+.fade-out {
+  color: rgba(98, 233, 124, 0.19);
+}
+
+body {
+  color: #fff;
+  background: red;
+}
+
+.import {
+  background: red;
+}
+
+.sidebar {
+  width: 300px;
+}
+@media screen and (orientation: landscape) {
+  .sidebar {
+    width: 500px;
+  }
+}
+
+a:hover, .hoverlink {
+  text-decoration: underline;
+}
+
+.a {
+  color: red;
+}
+.a .b {
+  color: orange;
+}
+.a .b .c {
+  color: yellow;
+}
+.d {
+  color: green;
+}
+
+.weibo {
+  color: blue;
+}
+
+/*# sourceMappingURL=testscss.css.map */

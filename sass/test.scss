@@ -1,0 +1,388 @@
+/*注释*/
+//注释
+$color:yellow;
+//默认变量
+$bgcolor:red !default;
+$bgcolor:darken(#428bca, 6.5%);
+body{
+	color: $color;
+	background: $bgcolor;
+}
+// 局部变量
+$width:200px;
+.block{
+	$width:300px;
+	width: $width;
+	// 选择器嵌套
+	h1{
+		color: $color;
+	}
+	// 属性嵌套
+	border:{
+		top: 1px solid red;
+		bottom: 1px solid blue;
+	}
+}
+
+// 伪类嵌套
+.clearfix{
+	&:before,
+	&:after {
+    	content:"";
+    	display: table;
+  	}
+	&:after {
+    	clear:both;
+    	overflow: hidden;
+  	}
+}
+
+// 混合宏
+@mixin color($color...) {
+  	@if length($color) > 1 {
+    	$color:red;
+  	} @else{
+    	$color:yellow;
+  	}
+  	color: $color;
+}
+
+.block{
+	@include color(#000,#666);
+}
+
+// 继承
+.btn{
+	border-style: solid;
+	border-width: 1px;
+}
+.btn-blue{
+	@extend .btn;
+	border-color: blue;
+	background: darken(blue, 10%);
+}
+
+// 占位符
+.padding{
+	padding: 10px;
+}
+%padding{
+	padding: 5px;
+}
+.btn-red{
+	@extend .btn;
+	// @extend .padding;
+	@extend %padding;
+}
+
+// sacc数据类型
+// 数字: 如，1、 2、 13、 10px；
+// 字符串：有引号字符串或无引号字符串，如，"foo"、 'bar'、 baz；
+// 颜色：如，blue、 #04a3f9、 rgba(255,0,0,0.5)；
+// 布尔型：如，true、 false；
+// 空值：如，null；
+// 值列表：用空格或者逗号分开，如，1.5em 1em 0 2em 、 Helvetica, Arial, sans-serif。
+
+// 插值
+$properties: (margin, padding);
+@mixin set-value($side, $value) {
+    @each $prop in $properties {
+        #{$prop}-#{$side}: $value;
+    }
+}
+.box {
+    @include set-value(top, 14px);
+}
+               
+// 加减乘除
+.box{
+	width: 10px + 1in;//1in = 96
+	height: 100px - 80px;
+	margin: 2px * 2;
+	padding: 10px / 2 + 5px;
+	// padding: (10px / 2) + 10px;
+	color: #333333 * 2;
+	// color: #333333 + #666666;
+
+}
+
+// 字符串拼接
+$content: "Hello" + "Sass!";
+.box:before {
+  // content: #{$content};
+  content: $content;
+}
+
+
+// @if
+@mixin blockOrHidden($boolean:true) {
+  @if $boolean {
+      @debug "$boolean is #{$boolean}";
+      display: block;
+    }
+  @else {
+      @debug "$boolean is #{$boolean}";
+      display: none;
+    }
+}
+.hidden{
+  @include blockOrHidden(false);
+}
+// @for循环
+@for $i from 1 through 3 {
+  .item-#{$i} { width: 2em * $i; }
+}
+// @while循环
+$types: 4;
+$type-width: 20px;
+@while $types > 0 {
+    .while-#{$types} {
+        width: $type-width + $types;
+    }
+    $types: $types - 1;
+}
+// @each循环
+$list: adam john wynn mason kuroir;
+@mixin author {
+    @each $author in $list {
+        .photo-#{$author} {
+            background: url("/images/avatars/#{$author}.png") no-repeat;
+        }
+    }
+}
+.each {
+    @include author;
+}
+// unquote()函数
+.unquote {
+    content:  unquote('Hello Sass!') ;
+}
+// quote()函数
+.quote {
+    content:  quote('Hello Sass!');
+}
+// To-upper-case()、To-lower-case()
+.case {
+  content: to-upper-case(aaaa); 
+  content: to-lower-case(aAAA); 
+}
+// percentage()
+.percentage{
+    width : percentage(2px / 10px);
+}
+// round()函数
+.round {
+   width:round(12.3px);
+}
+// ceil()函数
+.ceil {
+   width:ceil(12.3px);
+}
+// floor()函数
+.floor {
+   width:floor(12.3px);
+}
+// abs()函数
+.abs {
+   width:abs(-12.3px);
+}
+// min()函数、max()函数
+.min {
+   width:min(1px,5px);
+   height:max(1px,5px);
+}
+// random()函数
+.random{
+	width:random();
+}
+
+// length()函数
+.length{
+	width:length(10px 20px (border 1px solid) 2em);
+}
+// nth()函数
+.nth{
+	width: nth(10px 20px 30px,1);
+}
+// join()函数
+.join{
+	border: join(1px solid,red);
+}
+// append()函数
+.append{
+	border: append(1px solid,red);
+}
+// zip()函数
+.zip{
+	border:zip(1px 2px 3px,solid dashed dotted,green blue red);
+}
+// index()函数
+.index{
+	width: index(1px solid red, 1px);
+}
+// -type-of()
+$number:type-of(100);
+$string:type-of("asdf");
+$bool:type-of(true);
+$color:type-of(#fff);
+// unit()函数
+.unit{
+	width: 100+unit(100px);
+}
+// unitless()函数
+.unitless{
+	width: unitless(100);
+	height: unitless(100px);
+}
+// comparable()函数
+.comparable{
+	width: comparable(2px,1px);
+	height: comparable(2px,1%);
+}
+// Miscellaneous函数
+.miscellaneous{
+	width: if(true,1px,2px);
+}
+
+// Sass Maps的函数
+$color: (
+    default: #fff,
+    primary: #22ae39,
+    negative: #d9534f
+);
+// map-get($map,$key)
+.map-get{
+	color: map-get($color,default);
+}
+// map-has-key($map,$key)
+.map-has-key{
+	width: map-has-key($color,key);
+}
+// map-keys($map)
+.map-keys{
+	color:map-keys($color);
+}
+// map-values($map)
+.map-values{
+	color:map-values($color);
+}
+//map-merge($map1,$map2)
+.map-merge{
+	$border: map-merge($color,(warn:yellow));
+	color: map-values($border);
+}
+// map-remove($map,$key)
+.map-remove{
+	$remove: map-remove($color,default);
+	color: map-values($remove);
+}
+//keywords($args)
+@mixin keywords($args...){
+    $map:keywords($args);
+    color: map-values($map);
+}
+.keywords{
+	@include keywords($default:#fff,$primary:#333);
+}
+
+// RGB()颜色函数
+.RGB{
+	color: rgb(200,40,88);
+}
+// RGBA()函数
+.rgba{
+	color: rgba(#c82858,0.65);
+}
+// Red()函数
+.red{
+	color: red(#c82858);
+}
+// Green()函数
+.green{
+	color: green(#c82858);
+}
+// Blue()函数
+.blue{
+	color: blue(#c82858);
+}
+// Mix()函数
+.mix{
+	color: mix(rgba(#c82858,0.65),#c82858,0.3);
+}
+// HSL函数-lighten()
+// HSL函数-saturate()
+// HSL函数-adjust-hue()函数
+// HSL函数-grayscale()函数
+
+// alpha()函数
+// opacity()函数
+// Opacity函数-rgba()函数
+.alpha{
+	color: alpha(rgba(red,0.5));
+	color: opacity(rgba(red,0.8))
+}
+
+// opacify()函数 fade-in()函数
+.opacify{
+	color: opacify(rgba(22,34,235,.6),.2);
+}
+.fade-in{
+	color: fade-in(rgba(23,34,34,.5),.15);
+}
+// transparentize()函数  fade-out()函数
+.transparentize{
+	color: transparentize(#fde,.9);
+}
+.fade-out{
+	color: fade-out(rgba(98,233,124,.3),.11);
+}
+
+// @import
+// @import "rounded-corners.scss", "text-shadow.scss";
+@import "test.sass";
+.import{
+	background: $bgcolor;
+}
+// @media
+.sidebar {
+  	width: 300px;
+  	@media screen and (orientation: landscape) {
+    	width: 500px;
+  	}
+}
+// @extend
+.hoverlink {
+  	@extend a:hover;
+}
+a:hover {
+  	text-decoration: underline;
+}
+// @at-root
+.a {
+  	color: red;
+  	.b {
+    	color: orange;
+    	.c {
+      		color: yellow;
+		    @at-root .d {
+		       color: green;
+		    }
+    	}
+  	}  
+}
+// @debug
+// @warn
+// @error
+
+//function
+$colors:(waring:red,default:blue,ok:green);
+@function colors($c){
+    $names: map-keys($colors);
+    @if not index($names,$c){
+        @warn "Waring: '#{$color} is not a valid color name.'";
+    }
+    @return map-get($colors,$c);
+}
+.weibo{
+    color: colors(default);
+}
