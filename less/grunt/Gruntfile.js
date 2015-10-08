@@ -5,7 +5,27 @@ module.exports = function(grunt) {
     // jshint: { /* jshint的参数 */ },
     // concat: { /* concat的参数 */ },
     // uglify: { /* uglify的参数 */ },
-    // watch:  { /* watch的参数 */ }
+    connect:{
+      options:{
+        hostname:"192.168.1.100",
+        livereload:8080
+      }
+    },
+    watch:{
+      less:{
+        files:['../less/*'],
+        tasks:['less'],
+        options:{
+          livereload:true
+        }
+      },
+      fresh:{
+        files:['../dist/*'],
+        options: {
+          livereload: true
+        }
+      }
+    },
     less:{
       development: {
         files: {
@@ -37,10 +57,11 @@ module.exports = function(grunt) {
   // grunt.loadNpmTasks('grunt-contrib-jshint');
   // grunt.loadNpmTasks('grunt-contrib-concat');
   // grunt.loadNpmTasks('grunt-contrib-uglify');
-  // grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-connect');
+  grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-less');
 
   // 每行registerTask定义一个任务
-  grunt.registerTask('default', ['less']);
+  grunt.registerTask('default', ['connect','less','watch']);
 
 };

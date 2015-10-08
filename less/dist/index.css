@@ -1,6 +1,5 @@
 @charset "utf-8";
 @import "../dist/modules/modules.css";
-/*变量*/
 /*selector*/
 .banner {
   font-weight: bold;
