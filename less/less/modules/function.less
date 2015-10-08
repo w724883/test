@@ -1,0 +1,63 @@
+@charset "utf-8";
+@border: 1px;
+@color: #111;
+@red: #842210;
+
+.operation {
+	color: @color *3;
+	border: 1px solid desaturate(@red,100%);
+	border-width: @border @border*2 @border*3 @border;				
+	border-color:desaturate(@red,100%) @red lighten(@red, 10%)	darken(@red, 30%);
+}
+
+@color: green;
+// 亮度
+.box {
+	width: 100px;
+	height: 100px;
+	margin-right: 10px;
+	float: left;
+}
+.orign {
+	.box;
+	background-color: @color;
+}
+.lighten {
+	.box;
+	background-color: lighten(@color, 10%);     // return a color which is 10% *lighter* than @color
+};
+.darken {
+	.box;
+	background-color: darken(@color, 10%);      // return a color which is 10% *darker* than @color
+};
+
+// 饱和度
+.saturate {
+	.box;
+	background-color: saturate(@color, 10%);    // return a color 10% *more* saturated than @color
+};
+.desaturate {
+	.box;
+	background-color: desaturate(@color, 10%);  // return a color 10% *less* saturated than @color
+};
+
+// 透明度
+.fadein {
+	.box;
+	background-color: fadein(@color, 10%);      // return a color 10% *less* transparent than @color
+};
+.fadeout {
+	.box;
+	background-color: fadeout(@color, 10%);     // return a color 10% *more* transparent than @color
+};
+
+// 色调
+.spin-add {
+	.box;
+	background-color: spin(@color, 10);         // return a color with a 10 degree larger in hue than @color
+};
+.spin-minus {
+	.box;
+	background-color: spin(@color, -10);        // return a color with a 10 degree smaller hue than @color
+};
+

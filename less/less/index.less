@@ -1,0 +1,181 @@
+/*变量*/
+@nice-blue: #5B83AD;
+@light-blue: @nice-blue + #111;
+
+/*selector*/
+@mySelector: banner;
+.@{mySelector} {
+	font-weight: bold;
+	line-height: 40px;
+	margin: 0 auto;
+}
+
+/*urls*/
+@images: "../img";
+body {
+	color: #444;
+	background: url("@{images}/white-sand.png");
+}
+
+/*import statements*/
+@modules: "./modules";
+@import "@{modules}/scope.less";
+
+/*attributes*/
+@property: color;
+.widget {
+	@{property}: #033;
+	background-@{property}: #999;
+}
+
+/*变量名*/
+@var: "fnord";
+.var{
+  content: @var;
+}
+
+/*lazy loading*/
+.lazy-eval {
+  width: @var;
+}
+
+@var: @a;
+@a: 9%;
+
+.lazy-eval-scope {
+  width: @var;
+  @a: 9%;
+}
+
+@var: @a;
+@a: 100%;
+
+@var: 0;
+.class1 {
+  @var: 1;
+  .class {
+    @var: 2;
+    three: @var;
+    @var: 3;
+  }
+  one: @var;
+}
+
+.class1 .class {
+  three: 3;
+}
+.class {
+  one: 1;
+}
+
+/*Extend*/
+nav ul {
+  &:extend(.inline);
+  background: blue;
+}
+.inline {
+  color: red;
+}
+
+nav ul {
+  background: blue;
+}
+.inline,
+nav ul {
+  color: red;
+}
+
+
+/*混合*/
+.bordered {
+	border-top: 1px dotted black;
+	border-bottom: 2px solid black;
+}
+
+a {
+	color: red;
+	.bordered;
+}
+
+/*嵌套*/
+#header {
+  color: black;
+}
+#header .navigation {
+  font-size: 12px;
+}
+#header .logo {
+  width: 300px;
+}
+
+#header {
+  color: black;
+  .navigation {
+    font-size: 12px;
+  }
+  .logo {
+    width: 300px;
+  }
+}
+
+/*函数*/
+@base: #f04615;
+@width: 0.5;
+
+.class {
+	width: percentage(@width);
+	color: saturate(@base, 5%);
+	background-color: spin(lighten(@base, 25%), 8);
+}
+
+/*Namespaces & accessors*/
+#bundle {
+  .button {
+    display: block;
+    border: 1px solid black;
+    background-color: grey;
+    &:hover {
+      background-color: white
+    }
+  }
+}
+
+#header a {
+  color: orange;
+  #bundle > .button;
+}
+
+/*Scope*/
+@var: red;
+
+#page {
+  @var: white;
+  #header {
+    color: @var; // white
+  }
+}
+
+@var: red;
+
+#page {
+  #header {
+    color: @var; // white
+  }
+  @var: white;
+}
+
+
+/*注释*/
+/* 一个注释块
+style comment! */
+@var: red;
+// 这一行被注释掉了！
+@var: white;
+
+
+
+/*导入*/
+@import "modules/extend"; // library.less
+@import "../dist/modules/modules.css";
+
+

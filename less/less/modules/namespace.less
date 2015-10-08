@@ -1,0 +1,25 @@
+/* namespace */
+#bundle {
+  .button () {
+    display: block;
+    border: 1px solid black;
+    background-color: grey;
+    &:hover { background-color: white }
+  }
+  .button;
+}
+
+a {
+	color: orange;
+	margin-top: 10px;
+	#bundle > .button;
+}
+
+b {
+	color: blue;
+	margin-top: 10px;
+	#bundle .button;
+}
+
+
+

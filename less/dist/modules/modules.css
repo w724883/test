@@ -1,0 +1,245 @@
+@charset "utf-8";
+nav ul {
+  background: blue;
+}
+.inline,
+nav ul,
+.nav ul {
+  color: red;
+}
+.nav ul {
+  background-color: purple;
+}
+
+@charset "utf-8";
+.operation {
+  color: #00ff00;
+  border: 1px solid #4a4a4a;
+  border-width: 1px 2px 3px 1px;
+  border-color: #4a4a4a #842210 #b12e16 #000000;
+}
+.box {
+  width: 100px;
+  height: 100px;
+  margin-right: 10px;
+  float: left;
+}
+.orign {
+  width: 100px;
+  height: 100px;
+  margin-right: 10px;
+  float: left;
+  background-color: green;
+}
+.lighten {
+  width: 100px;
+  height: 100px;
+  margin-right: 10px;
+  float: left;
+  background-color: #00b300;
+}
+.darken {
+  width: 100px;
+  height: 100px;
+  margin-right: 10px;
+  float: left;
+  background-color: #004d00;
+}
+.saturate {
+  width: 100px;
+  height: 100px;
+  margin-right: 10px;
+  float: left;
+  background-color: #008000;
+}
+.desaturate {
+  width: 100px;
+  height: 100px;
+  margin-right: 10px;
+  float: left;
+  background-color: #067a06;
+}
+.fadein {
+  width: 100px;
+  height: 100px;
+  margin-right: 10px;
+  float: left;
+  background-color: #008000;
+}
+.fadeout {
+  width: 100px;
+  height: 100px;
+  margin-right: 10px;
+  float: left;
+  background-color: rgba(0, 128, 0, 0.9);
+}
+.spin-add {
+  width: 100px;
+  height: 100px;
+  margin-right: 10px;
+  float: left;
+  background-color: #008015;
+}
+.spin-minus {
+  width: 100px;
+  height: 100px;
+  margin-right: 10px;
+  float: left;
+  background-color: #158000;
+}
+
+@charset "utf-8";
+.column-1 {
+  width: 25%;
+  color: white;
+  background-color: red;
+  margin: 0 10px 10px 0;
+}
+.column-2 {
+  width: 50%;
+  color: white;
+  background-color: red;
+  margin: 0 10px 10px 0;
+}
+.column-3 {
+  width: 75%;
+  color: white;
+  background-color: red;
+  margin: 0 10px 10px 0;
+}
+.column-4 {
+  width: 100%;
+  color: white;
+  background-color: red;
+  margin: 0 10px 10px 0;
+}
+.merge-class {
+  box-shadow: inset 0 0 10px #555, 0 0 20px yellow;
+}
+
+/* variable */
+/*selector*/
+.banner {
+  font-weight: bold;
+  line-height: 40px;
+  margin: 0 auto;
+  color: #5b83ad;
+  background-color: #8faece;
+}
+.link {
+  color: #4a8bca;
+}
+.link:hover {
+  color: #3371ae;
+}
+
+/* mixin */
+.a,
+#b {
+  color: red;
+}
+.mixin-class {
+  color: red;
+}
+#mixin-id {
+  background-color: green;
+  color: red;
+}
+.round {
+  width: 120px;
+  height: 120px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+.shadow {
+  -webkit-box-shadow: 2px 2px 3px #ff3366;
+  -moz-box-shadow: 2px 2px 3px #ff3366;
+  box-shadow: 2px 2px 3px #ff3366;
+}
+.mixin-class1 {
+  background-color: black;
+  color: #dddddd;
+}
+.mixin-class2 {
+  background-color: grey;
+  color: #555555;
+}
+
+/* namespace */
+#bundle {
+  display: block;
+  border: 1px solid black;
+  background-color: grey;
+}
+#bundle:hover {
+  background-color: white;
+}
+a {
+  color: orange;
+  margin-top: 10px;
+  display: block;
+  border: 1px solid black;
+  background-color: grey;
+}
+a:hover {
+  background-color: white;
+}
+b {
+  color: blue;
+  margin-top: 10px;
+  display: block;
+  border: 1px solid black;
+  background-color: grey;
+}
+b:hover {
+  background-color: white;
+}
+
+/* nest */
+#nested {
+  display: inline;
+  float: left;
+  background-color: #fab;
+}
+#nested h1 {
+  font-size: 26px;
+  font-weight: bold;
+}
+#nested h1 a {
+  text-decoration: none;
+  color: #f36;
+}
+#nested h1 a:hover {
+  text-decoration: underline;
+  color: #cc0033;
+}
+#nested p {
+  font-size: 12px;
+}
+#nested .noand {
+  color: yellow;
+}
+#nested.hasand {
+  color: blue;
+}
+.clearfix {
+  display: block;
+  zoom: 1;
+}
+.clearfix:after {
+  content: " ";
+  display: block;
+  font-size: 0;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+/* scope */
+.page .header {
+  color: blue;
+}
+.footer {
+  color: red;
+}

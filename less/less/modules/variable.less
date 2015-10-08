@@ -1,0 +1,23 @@
+/* variable */
+@nice-blue: #5B83AD;
+@light-blue: @nice-blue + #111;
+
+/*selector*/
+@mySelector: banner;
+.@{mySelector} {
+	font-weight: bold;
+	line-height: 40px;
+	margin: 0 auto;
+  color: @nice-blue;
+  background-color: lighten(@light-blue, 10%);
+}
+
+@link-color: #4a8bca;
+@link-color-hover: darken(@link-color, 10%);
+
+.link {
+  color: @link-color;
+  &:hover {
+    color: @link-color-hover;
+  }
+}

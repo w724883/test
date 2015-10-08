@@ -9,7 +9,17 @@ module.exports = function(grunt) {
     less:{
       development: {
         files: {
-          "../test.css": "../test.less"
+          "../dist/modules/modules.css":[
+            "../less/modules/extend.less",
+            "../less/modules/function.less",
+            "../less/modules/loop.less",
+            "../less/modules/variable.less",
+            "../less/modules/mixin.less",
+            "../less/modules/namespace.less",
+            "../less/modules/nest.less",
+            "../less/modules/scope.less",
+          ],
+          "../dist/index.css":"../less/index.less"
         }
       },
       // production: {

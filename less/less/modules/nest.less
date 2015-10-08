@@ -1,0 +1,44 @@
+/* nest */
+#nested {
+	display: inline;
+	float: left;
+	background-color: #fab;
+	h1 {
+		font-size: 26px;
+		font-weight: bold;
+		a {
+			text-decoration: none;
+			color: #f36;
+			&:hover {
+				text-decoration: underline;
+				color: darken(#f36, 20%);
+			}
+		}
+	}
+	p {
+		font-size: 12px;
+	}
+	.noand {
+		color: yellow;
+	}
+	&.hasand {
+		color: blue;
+	}
+}
+
+.clearfix {
+	display: block;
+	zoom: 1;
+	&:after {
+		content: " ";
+		display: block;
+		font-size: 0;
+		height: 0;
+		clear: both;
+		visibility: hidden;
+	}
+}
+
+// 关于& 指代父元素全部类或者父元素字符串
+
+

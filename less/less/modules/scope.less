@@ -1,0 +1,13 @@
+/* scope */
+@var: red;
+
+.page {
+  @var: blue;
+  .header {
+    color: @var; // white
+  }
+}
+
+.footer {
+  color: @var; // red  
+}

@@ -1,0 +1,70 @@
+/* mixin */
+@width: 120px;
+@height: 120px;
+
+.a,
+#b
+{
+    color: red;
+}
+.mixin-class
+{
+    .a;
+}
+
+// 加了括号源码就不显示了
+.mixin-other-class()
+{
+    background-color: green;
+}
+#mixin-id
+{
+    .mixin-other-class;
+    #b();
+}
+
+.roundedCorners(@radius:5px)
+{
+    -webkit-border-radius: @radius;
+       -moz-border-radius: @radius;
+            border-radius: @radius;
+}
+
+.round
+{
+    width: @width;
+    height: @height;
+
+    .roundedCorners;
+}
+
+.boxShadow(@x:0,@y:0,@blur:1px,@color:#000)
+{
+    -webkit-box-shadow: @arguments;
+       -moz-box-shadow: @arguments;
+            box-shadow: @arguments;
+}
+
+.shadow
+{
+    .boxShadow(2px,2px,3px,#f36);
+}
+
+// Contitional mixins
+
+.mixin (@a) when (lightness(@a) >= 50%) {
+  background-color: black;
+}
+.mixin (@a) when (lightness(@a) < 50%) {
+  background-color: grey;
+}
+.mixin (@a) {
+  color: @a;
+}
+
+.mixin-class1 {
+	.mixin(#ddd);
+}
+.mixin-class2 {
+	.mixin(#555);
+}
