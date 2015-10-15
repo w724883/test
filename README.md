@@ -12,3 +12,9 @@
 3.安装grunt npm install -g grunt
 4.进入grunt目录，安装node模块 npm install
 5.编译less  grunt
+
+1.安装node环境
+2.安装requirejs npm install -g requirejs
+3.安装grunt
+4.进入grunt目录，安装node模块 npm install
+5.运行grunt，生成目录
