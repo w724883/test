@@ -1,0 +1,1 @@
+require(["zepto","../common"],function(e,t){var n=e("#login");n.on("tap",".J-submit",function(e){t.bindLogin(n)})});
